@@ -1,70 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Admin Dashboard</title>
+<title>Dashboard</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2 style="text-align:center;">Application Dashboard</h2>
+<nav>
+    <h2>User Dashboard</h2>
+    <span>Aayush Pandey</span>
+</nav>
 
-<table border="1" width="80%" align="center" cellpadding="10">
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Skills</th>
-    </tr>
-    <tbody id="dataTable"></tbody>
-</table>
+<div class="dashboard">
+    <h2>Application Details</h2>
 
-<div style="text-align:center; margin-top:20px;">
-    <a href="index.html">
-        <button>Home</button>
-    </a>
+    <p><strong>Name:</strong> <span id="dname"></span></p>
+    <p><strong>Email:</strong> <span id="demail"></span></p>
+    <p><strong>Skills:</strong> <span id="dskills"></span></p>
+    <p><strong>Level:</strong> <span id="dlevel"></span></p>
+
+    <button onclick="clearData()">Clear Data</button>
+    <button onclick="goHome()">Home</button>
 </div>
 
-<script type="module">
+<footer>
+    <p>Developed by Aayush Pandey</p>
+</footer>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyABorOcuj8UV4GMMJ3qUL3Do5lFRYxaySE",
-  authDomain: "internship-portal-ddcb3.firebaseapp.com",
-  projectId: "internship-portal-ddcb3",
-  storageBucket: "internship-portal-ddcb3.firebasestorage.app",
-  messagingSenderId: "287388548957",
-  appId: "1:287388548957:web:2370cc6b4fa8e54096b2b4"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-async function loadData() {
-    const querySnapshot = await getDocs(collection(db, "applications"));
-    let table = document.getElementById("dataTable");
-
-    querySnapshot.forEach((doc) => {
-        let data = doc.data();
-
-        let row = `
-            <tr>
-                <td>${data.name}</td>
-                <td>${data.email}</td>
-                <td>${data.phone}</td>
-                <td>${data.skills}</td>
-            </tr>
-        `;
-
-        table.innerHTML += row;
-    });
-}
-
-loadData();
-
-</script>
-
+<script type="module" src="script.js"></script>
 </body>
 </html>
