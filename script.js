@@ -21,7 +21,7 @@ window.submitForm = async function () {
     let skills = document.getElementById("skills").value;
 
     if (!name || !email) {
-        document.getElementById("error").innerText = "Fill all fields";
+        document.getElementById("error").innerText = "Please fill all required fields";
         return;
     }
 
@@ -36,8 +36,8 @@ window.submitForm = async function () {
 
         window.location.href = "success.html";
 
-    } catch (e) {
-        alert("Error");
-        console.log(e);
+    } catch (error) {
+        alert("Error submitting form");
+        console.error(error);
     }
 };
