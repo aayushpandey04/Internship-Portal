@@ -11,13 +11,51 @@
 <div class="form-card">
 
 <h2>Internship Application</h2>
+<p class="subtitle">Fill all required details</p>
 
+<div class="section">
+<h3>Personal Details</h3>
+
+<div class="row">
 <input type="text" id="name" placeholder="Full Name">
 <input type="email" id="email" placeholder="Email">
-<input type="text" id="phone" placeholder="Phone">
+</div>
+
+<div class="row">
+<input type="text" id="phone" placeholder="Contact Number">
+<select id="gender">
+<option>Gender</option>
+<option>Male</option>
+<option>Female</option>
+</select>
+</div>
+</div>
+
+<div class="section">
+<h3>Academic Details</h3>
+
+<div class="row">
+<input type="text" id="college" placeholder="College">
+<input type="text" id="city" placeholder="City">
+</div>
+
+<select id="level">
+<option>Experience Level</option>
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+</select>
+</div>
+
+<div class="section">
+<h3>Skills</h3>
+
 <input type="text" id="skills" placeholder="Skills">
 
-<button onclick="submitForm()">Submit</button>
+<textarea id="why" placeholder="Why should we select you?"></textarea>
+</div>
+
+<button class="submit-btn" onclick="submitForm()">Submit</button>
 <p id="error"></p>
 
 </div>
